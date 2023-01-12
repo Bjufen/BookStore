@@ -15,14 +15,14 @@ public class Book {
 
     private String name;
     private String author;
-    private Integer year;
+    private Integer pYear;
 
     public Book(){}
     
-    public Book(String name, String author, Integer year){
+    public Book(String name, String author, Integer pYear){
         this.name = name;
         this.author = author;
-        this.year = year;
+        this.pYear = pYear;
     }
 
     public Integer getId() {
@@ -50,10 +50,10 @@ public class Book {
     }
 
     public Integer getYear() {
-        return year;
+        return pYear;
     }
 
     public void setYear(Integer year) {
-        this.year = year;
+        this.pYear = year;
     }
 }
