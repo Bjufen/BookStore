@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RequestMapping("/bookStore")
@@ -42,5 +44,19 @@ public class BookController {
             return new ResponseEntity<>(book, HttpStatus.OK);
         else
             return new ResponseEntity<>(book, HttpStatus.BAD_REQUEST);
+    }
+    @GetMapping(value = "/newest")
+    public ResponseEntity<Book> getNewestBook(){
+        List<Book> books = new ArrayList<Book>();
+        books = bookSer.findBooks();
+        Book book = Collections.max(books, Comparator.comparing(Book::getYear));
+        return new ResponseEntity<>(book, HttpStatus.OK);
+    }
+    @GetMapping(value = "/oldest")
+    public ResponseEntity<Book> getOldestBook() {
+        List<Book> books = new ArrayList<Book>();
+        books = bookSer.findBooks();
+        Book book = Collections.min(books, Comparator.comparing(Book::getYear));
+        return new ResponseEntity<>(book, HttpStatus.OK);
     }
 }

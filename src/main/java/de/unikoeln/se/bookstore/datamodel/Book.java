@@ -16,13 +16,23 @@ public class Book {
     private String name;
     private String author;
     private Integer pYear;
+    private Double price;
 
     public Book(){}
     
-    public Book(String name, String author, Integer pYear){
+    public Book(String name, String author, Integer pYear, Double price){
         this.name = name;
         this.author = author;
         this.pYear = pYear;
+        this.price = price;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Integer getId() {
